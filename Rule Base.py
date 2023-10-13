@@ -3,7 +3,7 @@ import tkinter as tk
 CHARACTER_BANNER = "Character Banner"
 WEAPON_BANNER = "Weapon Banner"
 
-def calculate_probability():
+def calculate_probability(event = None):
     try:
         pulls = int(entry.get())
         banner_type = banner_choice.get()
