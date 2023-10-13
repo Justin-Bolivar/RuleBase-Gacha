@@ -1,5 +1,8 @@
 import tkinter as tk
 
+CHARACTER_BANNER = "Character Banner"
+WEAPON_BANNER = "Weapon Banner"
+
 def calculate_probability(event=None):
     try:
         pulls = int(entry.get())
@@ -21,6 +24,14 @@ def calculate(pulls):
         return 0.006 + (pulls - 73) * 0.006 * 10
     else:
         return 1.0
+    
+def calculate_weapon_probability(pulls):
+    if pulls < 63:
+        return 0.007
+    elif pulls < 80:
+        return 0.007 + (pulls - 63) * 0.007 * 10
+    else:
+        return 1.0    
 
 window = tk.Tk()
 window.title("Genshin Impact 5 star Calculator")
