@@ -11,10 +11,10 @@ def calculate_probability(event = None):
         if pulls <= 0:
             result_label.config(text = "Please enter a valid number of pulls.")
         elif banner_type == C_BANNER:
-            probability = calculate_probability(pulls, C_BANNER)
+            probability = calculate_probability_for_banner(pulls, C_BANNER)
             result_label.config(text = f"Character Banner: Probability of a 5-star character: {probability:.2%}")
         elif banner_type == W_BANNER:
-            probability = calculate_probability(pulls, W_BANNER)
+            probability = calculate_probability_for_banner(pulls, W_BANNER)
             result_label.config(text = f"Weapon Banner: Probability of a 5-star weapon: {probability:.2%}")
         else:
             result_label.config(text = "Please select a banner type.")
@@ -22,7 +22,7 @@ def calculate_probability(event = None):
     except ValueError:
         result_label.config(text = "Invalid input. Please enter a valid number.")
 
-def calculate_probability(pulls, banner_type):
+def calculate_probability_for_banner(pulls, banner_type):
     if banner_type == C_BANNER:
         if pulls < 73:
             return 0.006
